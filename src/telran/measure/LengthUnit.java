@@ -6,9 +6,10 @@ public enum LengthUnit {
 	LengthUnit(float value) {
 		this.value = value;
 	}
-	
-	public Length between (Length l1, Length l2) {
-		//returns length in between in this units
-		return null;
+	public Length between(Length l1, Length l2) {
+		return new Length(l2.convert(this).getAmount() - l1.convert(this).getAmount(), this);
+	}
+	public float getValue() {
+		return value;
 	}
 }
